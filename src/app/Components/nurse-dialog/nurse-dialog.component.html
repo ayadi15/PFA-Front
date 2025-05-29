@@ -1,4 +1,4 @@
-<h2 mat-dialog-title>Add New Nurse</h2>
+<h2 mat-dialog-title>{{ isEditMode ? 'Edit Nurse' : 'Add New Nurse' }}</h2>
 
 <mat-dialog-content>
   <form [formGroup]="nurseForm" class="form-container">
@@ -13,14 +13,13 @@
     </mat-form-field>
 
     <mat-form-field appearance="fill" class="form-field">
-      <mat-label>years of experience</mat-label>
-      <input matInput formControlName="years_of_experience" />
-      
+      <mat-label>Specialization</mat-label>
+      <input matInput formControlName="specialization" />
     </mat-form-field>
 
     <mat-form-field appearance="fill" class="form-field">
-      <mat-label>Phone</mat-label>
-      <input matInput formControlName="phone" />
+      <mat-label>Number</mat-label>
+      <input matInput formControlName="number" />
     </mat-form-field>
 
     <mat-form-field appearance="fill" class="form-field">
@@ -29,22 +28,25 @@
     </mat-form-field>
 
     <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Address</mat-label>
+      <input matInput formControlName="adress" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="form-field">
       <mat-label>Department</mat-label>
       <input matInput formControlName="department" />
     </mat-form-field>
 
     <mat-form-field appearance="fill" class="form-field">
-      <mat-label>Status</mat-label>
-      <mat-select formControlName="status">
-        <mat-option value="Active">Active</mat-option>
-        <mat-option value="On leave">On leave</mat-option>
-        <mat-option value="Retired">Retired</mat-option>
-      </mat-select>
+      <mat-label>License Number</mat-label>
+      <input matInput formControlName="license_number" />
     </mat-form-field>
   </form>
 </mat-dialog-content>
 
 <mat-dialog-actions align="end">
   <button mat-button (click)="onCancel()">Cancel</button>
-  <button mat-raised-button class="save-button" (click)="onSave()">Add</button>
+  <button mat-raised-button class="add-button" (click)="onSave()">
+    {{ isEditMode ? 'Update' : 'Add' }}
+  </button>
 </mat-dialog-actions>

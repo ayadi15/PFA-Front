@@ -1,57 +1,63 @@
-<div class="nurse-header">
-  <h2>Manage Nurses</h2>
-  <button mat-raised-button class="add-nurse-btn" (click)="openAddNurseDialog()">Add Nurse</button>
+<div class="header">
+  <h2>Nurses</h2>
+  <button mat-raised-button class="add-button" (click)="openAddNurseDialog()">Add Nurse</button>
 </div>
 
-<table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
-
+<mat-table [dataSource]="dataSource" matSort>
   <ng-container matColumnDef="firstName">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header>First Name</th>
-    <td mat-cell *matCellDef="let nurse">{{ nurse.firstName }}</td>
+    <mat-header-cell *matHeaderCellDef mat-sort-header>First Name</mat-header-cell>
+    <mat-cell *matCellDef="let nurse">{{ nurse.firstName }}</mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="lastName">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header>Last Name</th>
-    <td mat-cell *matCellDef="let nurse">{{ nurse.lastName }}</td>
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Last Name</mat-header-cell>
+    <mat-cell *matCellDef="let nurse">{{ nurse.lastName }}</mat-cell>
   </ng-container>
 
-  <ng-container matColumnDef="shift">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header>Shift</th>
-    <td mat-cell *matCellDef="let nurse">{{ nurse.shift }}</td>
+  <ng-container matColumnDef="specialization">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Specialization</mat-header-cell>
+    <mat-cell *matCellDef="let nurse">{{ nurse.specialization }}</mat-cell>
   </ng-container>
 
-  <ng-container matColumnDef="phone">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header>Phone</th>
-    <td mat-cell *matCellDef="let nurse">{{ nurse.phone }}</td>
+  <ng-container matColumnDef="number">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Phone</mat-header-cell>
+    <mat-cell *matCellDef="let nurse">{{ nurse.number }}</mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="email">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header>Email</th>
-    <td mat-cell *matCellDef="let nurse">{{ nurse.email }}</td>
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Email</mat-header-cell>
+    <mat-cell *matCellDef="let nurse">{{ nurse.email }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="adress">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Address</mat-header-cell>
+    <mat-cell *matCellDef="let nurse">{{ nurse.adress }}</mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="department">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header>Department</th>
-    <td mat-cell *matCellDef="let nurse">{{ nurse.department }}</td>
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Department</mat-header-cell>
+    <mat-cell *matCellDef="let nurse">{{ nurse.department }}</mat-cell>
   </ng-container>
 
-  <ng-container matColumnDef="status">
-    <th mat-header-cell *matHeaderCellDef>Status</th>
-    <td mat-cell *matCellDef="let nurse">
-      <span [ngClass]="getStatusClass(nurse.status)">{{ nurse.status }}</span>
-    </td>
+  <ng-container matColumnDef="license_number">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>License </mat-header-cell>
+    <mat-cell *matCellDef="let nurse">{{ nurse.license_number }}</mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="actions">
-    <th mat-header-cell *matHeaderCellDef>Actions</th>
-    <td mat-cell *matCellDef="let nurse">
-      <img src="assets/images/pen.png" class="action-icon" />
-      <img src="assets/images/delete.png" class="action-icon" />
-    </td>
+    <mat-header-cell *matHeaderCellDef>Actions</mat-header-cell>
+    <mat-cell *matCellDef="let nurse; let i = index">
+      <button mat-icon-button color="primary" (click)="openEditNurseDialog(nurse, i)">
+        <img src="assets/images/pen.png" alt="Edit" style="width:24px; height:24px;" />
+      </button>
+      <button mat-icon-button color="warn" (click)="deleteNurse(i)">
+        <img src="assets/images/delete.png" alt="Delete" style="width:24px; height:24px;" />
+      </button>
+    </mat-cell>
   </ng-container>
 
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
 
-<mat-paginator [pageSizeOptions]="[5, 10, 25]" showFirstLastButtons></mat-paginator>
+<mat-paginator [pageSizeOptions]="[5, 10, 20]"></mat-paginator>

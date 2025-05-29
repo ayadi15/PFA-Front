@@ -1,6 +1,17 @@
-import { Component } from '@angular/core';
-import { MatDialogRef } from '@angular/material/dialog';
+import { Component, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+
+export interface Nurse {
+  firstName: string;
+  lastName: string;
+  specialization: string;
+  number: string;
+  email: string;
+  department: string;
+  adress: string;
+  license_number: string;
+}
 
 @Component({
   selector: 'app-nurse-dialog',
@@ -9,19 +20,24 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class NurseDialogComponent {
   nurseForm: FormGroup;
+  isEditMode = false;
 
   constructor(
     private fb: FormBuilder,
-    public dialogRef: MatDialogRef<NurseDialogComponent>
+    public dialogRef: MatDialogRef<NurseDialogComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: Nurse | null
   ) {
+    this.isEditMode = !!data;
+
     this.nurseForm = this.fb.group({
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required],
-      years_of_experience: ['', Validators.required],
-      phone: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      department: ['', Validators.required],
-      status: ['Active', Validators.required]
+      firstName: [data?.firstName || '', Validators.required],
+      lastName: [data?.lastName || '', Validators.required],
+      specialization: [data?.specialization || '', Validators.required],
+      number: [data?.number || '', Validators.required],
+      email: [data?.email || '', [Validators.required, Validators.email]],
+      department: [data?.department || '', Validators.required],
+      adress: [data?.adress || '', Validators.required],
+      license_number: [data?.license_number || '', Validators.required],
     });
   }
 

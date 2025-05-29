@@ -1,36 +1,32 @@
-.nurse-header {
+.header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+  margin: 20px 0;
 }
 
-.add-nurse-btn {
-  background-color: #0f5247;
-  color: white;
-}
-
-.add-nurse-btn:hover {
+.add-button {
+    margin-right: 40px;
+  margin-top: 40px;
   background-color: #0d443b;
+  color: white;
+  font-weight: 500;
 }
 
-.status-active {
-  color: green;
-  font-weight: bold;
+.add-button:hover {
+  background-color: #0f5247;
 }
 
-.status-retired {
-  color: gray;
-  font-weight: bold;
+mat-table {
+  width: 100%;
+  margin-top: 10px;
 }
 
-.status-on-leave {
-  color: orange;
-  font-weight: bold;
+mat-header-cell,
+mat-cell {
+  padding: 8px 12px;
 }
 
-.action-icon {
-  width: 20px;
-  margin-right: 10px;
-  cursor: pointer;
+mat-paginator {
+  margin-top: 15px;
 }

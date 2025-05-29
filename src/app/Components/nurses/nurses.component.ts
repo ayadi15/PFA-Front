@@ -3,17 +3,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatDialog } from '@angular/material/dialog';
-import { NurseDialogComponent } from '../nurse-dialog/nurse-dialog.component';
-
-export interface Nurse {
-  firstName: string;
-  lastName: string;
-  shift: string;
-  phone: string;
-  email: string;
-  department: string;
-  status: 'Active' | 'On leave' | 'Retired';
-}
+import { NurseDialogComponent, Nurse } from '../nurse-dialog/nurse-dialog.component';
 
 @Component({
   selector: 'app-nurses',
@@ -21,25 +11,20 @@ export interface Nurse {
   styleUrls: ['./nurses.component.css']
 })
 export class NursesComponent implements AfterViewInit {
-  displayedColumns: string[] = ['firstName', 'lastName', 'shift', 'phone', 'email', 'department', 'status', 'actions'];
+  displayedColumns: string[] = [
+    'firstName', 'lastName', 'specialization', 'number', 'email', 'department', 'adress', 'license_number', 'actions'
+  ];
+
   dataSource = new MatTableDataSource<Nurse>([
     {
-      firstName: 'Fatima',
-      lastName: 'Zahra',
-      shift: 'Night',
-      phone: '12345678',
-      email: 'fatima@nurse.com',
-      department: 'Pediatrics',
-      status: 'Active'
-    },
-    {
-      firstName: 'Ahmed',
-      lastName: 'Ali',
-      shift: 'Morning',
-      phone: '87654321',
-      email: 'ahmed@nurse.com',
-      department: 'Emergency',
-      status: 'On leave'
+      firstName: 'Salma',
+      lastName: 'Ben Ali',
+      specialization: 'Pediatrics',
+      number: '98765432',
+      email: 'salma@nurse.com',
+      department: 'Neonatology',
+      adress: 'Sousse',
+      license_number: 'NUR-3214'
     }
   ]);
 
@@ -53,29 +38,32 @@ export class NursesComponent implements AfterViewInit {
     this.dataSource.sort = this.sort;
   }
 
-  getStatusClass(status: string): string {
-    switch (status) {
-      case 'Active':
-        return 'status-active';
-      case 'On leave':
-        return 'status-on-leave';
-      case 'Retired':
-        return 'status-retired';
-      default:
-        return '';
-    }
-  }
-
   openAddNurseDialog(): void {
-    const dialogRef = this.dialog.open(NurseDialogComponent, {
-      width: '400px',
-      panelClass: 'custom-modal-container'
-    });
+    const dialogRef = this.dialog.open(NurseDialogComponent);
 
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe((result) => {
       if (result) {
         this.dataSource.data = [...this.dataSource.data, result];
       }
     });
+  }
+
+  openEditNurseDialog(nurse: Nurse, index: number): void {
+    const dialogRef = this.dialog.open(NurseDialogComponent, {
+      data: nurse
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        const updatedData = [...this.dataSource.data];
+        updatedData[index] = result;
+        this.dataSource.data = updatedData;
+      }
+    });
+  }
+
+  deleteNurse(index: number): void {
+    this.dataSource.data.splice(index, 1);
+    this.dataSource.data = [...this.dataSource.data];
   }
 }
