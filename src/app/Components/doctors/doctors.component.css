@@ -1,0 +1,71 @@
+.doctors-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.content-area {
+  background-color: #f8fafc;
+  overflow-y: auto;
+  height: calc(100vh - 64px);
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.status-active {
+  background-color: #10b981;
+}
+
+.status-retired {
+  background-color: #ef4444;
+}
+
+.status-on-leave {
+  background-color: #f59e0b;
+}
+
+.mat-column-status {
+  width: 120px;
+}
+
+.mat-header-cell {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #64748b;
+}
+
+.mat-cell {
+  font-size: 0.875rem;
+  color: #1e293b;
+}
+
+.doctors-table-container {
+  overflow: hidden;
+}
+th{
+  color: gray;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.add-doctor-button {
+  margin-right: 40px;
+  margin-top: 40px;
+  background-color: #0f5247; /* your green */
+  color: white;
+}
+
+.add-doctor-button:hover {
+  background-color: #0d443b;
+  color: white;
+}
+

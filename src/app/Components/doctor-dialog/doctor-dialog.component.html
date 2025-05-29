@@ -1,0 +1,51 @@
+
+<h2 mat-dialog-title>{{ isEditMode ? 'Edit Doctor' : 'Add New Doctor' }}</h2>
+
+<mat-dialog-content>
+  <form [formGroup]="doctorForm" class="form-container">
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>First Name</mat-label>
+      <input matInput formControlName="firstName" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Last Name</mat-label>
+      <input matInput formControlName="lastName" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Specialization</mat-label>
+      <input matInput formControlName="specialization" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Number</mat-label>
+      <input matInput formControlName="number" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" />
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Adress</mat-label>
+      <input matInput formControlName="adress" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Department</mat-label>
+      <input matInput formControlName="department" />
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>License number</mat-label>
+      <input matInput formControlName="license_number" />
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-raised-button class="add-button" (click)="onSave()">
+    {{ isEditMode ? 'Update' : 'Add' }}
+  </button>
+</mat-dialog-actions>

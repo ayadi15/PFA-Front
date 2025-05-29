@@ -1,0 +1,20 @@
+.form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 10px;
+}
+
+.form-field {
+  width: 100%;
+}
+
+.add-button {
+  background-color: #0f5247;
+  color: white;
+}
+
+.add-button:hover {
+  background-color: #0d443b;
+  color: white;
+}

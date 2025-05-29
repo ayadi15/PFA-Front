@@ -1,0 +1,26 @@
+/* Ensure the whole layout fills the screen */
+:host {
+  display: block;
+  height: 100vh;
+}
+
+/* Main layout under the header */
+.main-container {
+  display: flex;
+  height: calc(100vh - 60px); /* Subtract header height */
+}
+
+/* Sidebar */
+.sidebar {
+  width: 200px;
+  background-color: #fff;
+  border-right: 1px solid #ddd;
+  overflow-y: auto;
+}
+
+/* Content */
+.content {
+  flex: 1;
+  /* padding: 20px; */
+  overflow-y: auto;
+}

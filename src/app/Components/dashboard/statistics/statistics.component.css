@@ -1,0 +1,45 @@
+/* src/app/dashboard/statistics/statistics.component.css */
+.statistics {
+  display: flex;
+  gap: 20px; /* Spacing between cards */
+}
+
+.stat-card {
+  display: flex;
+  align-items: center; /* Align items vertically in the card */
+  background-color: #f0f8ff; /* Light blue background */
+  border-radius: 10px; /* Rounded corners */
+  padding: 15px 20px; /* Padding inside the card */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.icon-container {
+  width: 40px;
+  height: 40px;
+  background-color: #c8eee8; /* Light green background for icons */
+  border-radius: 50%; /* Circular icon container */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px; /* Space between icon and content */
+  flex-shrink: 0; /* Prevent the icon from shrinking */
+}
+
+.stat-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Align content vertically */
+}
+
+.stat-content span {
+  color: #6c757d; /* Gray text color */
+  font-size: 14px;
+  font-weight: 900; /* Bold label */
+}
+
+.stat-content h2 {
+  color: #333; /* Darker text color for numbers */
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0; /* Remove default margin for better alignment */
+}

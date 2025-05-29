@@ -1,1 +1,36 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300..900&family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import '~@fortawesome/fontawesome-free/css/all.min.css';
+
+/* ===== Police par défaut ===== */
+body {
+  font-family: "Darker Grotesque", sans-serif;
+  font-weight: 300;
+}
+
+/* ===== Centrage et style des dialogs ===== */
+.mat-dialog-container,
+.mat-mdc-dialog-surface {
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  max-height: 90vh !important;
+  overflow: visible !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15) !important;
+  border-radius: 8px !important;
+  background-color: #ffffff !important;
+  margin: 0 !important;
+}
+
+/* ===== Overlay et dropdown fix pour mat-select ===== */
+.cdk-overlay-pane {
+  z-index: 1052 !important;
+}
+
+.mat-select-panel,
+.mat-mdc-select-panel,
+.select-panel-fix {
+  z-index: 1053 !important;
+  max-height: 300px !important;
+  overflow: auto !important;
+}

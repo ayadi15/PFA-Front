@@ -1,0 +1,234 @@
+/* src/app/header/header.component.css */
+.header {
+  display: flex;
+  justify-content: space-between; /* Space out logo, button, and actions */
+  align-items: center;
+  padding: 10px 20px; /* Add padding around the header */
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Logo Section */
+.logo-section {
+  display: flex;
+  align-items: center; /* Align logo and text vertically */
+}
+
+.logo {
+  height: 120px;
+  width: auto; /* Adjust the height of the logo */
+  margin-right: -105px; /* Fine-tune spacing between the logo and text */
+  margin-left: -20px;
+  margin-top: -50px;
+  margin-bottom: -50px;
+  
+}
+
+.text-container {
+  display: flex;
+  flex-direction: column;
+  Margin-left:120px /* Stack text elements vertically */
+}
+
+.pages {
+  font-size: 14px; /* Smaller font for breadcrumb */
+  color: #6c757d; /* Gray color */
+  margin: 0; /* Remove default margin */
+}
+
+.main-dashboard {
+  font-size: 20px; /* Larger font for main dashboard */
+  font-weight: bold;
+  color: #333; /* Darker text color */
+  
+  margin-top: 2px; /* Add spacing between the two lines of text */
+}
+
+/* Notify Staff Button */
+.notify-btn {
+  background-color: #436d66; /* Blue background */
+  color: #fff; /* White text */
+  border: none; /* No border */
+  padding: 8px 16px; /* Padding for button size */
+  border-radius: 10px; /* Rounded corners */
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Smooth hover effect */
+  width: 150px;
+  font-size: 14px;
+  font-family: "Darker Grotesque";
+font-weight: bold;
+
+}
+
+.notify-btn:hover {
+  background-color: #0f5247; /* Darker blue on hover */
+}
+
+/* Actions Section */
+.actions {
+  display: flex;
+  align-items: center; /* Align items vertically */
+  gap: 15px; /* Spacing between action items */
+}
+
+/* Search Container */
+.search-container {
+  position: relative; /* Needed for positioning the icon */
+  display: inline-block; /* Ensure it only takes up as much space as needed */
+}
+
+/* Search Icon */
+.search-icon {
+  position: absolute; /* Position the icon inside the input */
+  left: 15px; /* Push the icon slightly inside the input */
+  top: 50%; /* Center the icon vertically */
+  transform: translateY(-50%); /* Adjust vertical alignment */
+  color: #6c757d; /* Gray color */
+  font-size: 18px; /* Larger icon size */
+  pointer-events: none; /* Disable clicks on the icon */
+  transition: color 0.3s ease; /* Smooth color transition */
+}
+
+/* Search Bar */
+.search-bar {
+  width: 180px; /* Fixed width for the search bar */
+  height: 25px; /* Increased height for a more modern look */
+  padding-left: 45px; /* Add padding to make space for the icon */
+  font-size: 14px; /* Larger font size */
+  border: 2px solid #e0e0e0; /* Subtle border */
+  border-radius: 25px; /* Rounded corners for a futuristic look */
+  outline: none; /* Remove default focus outline */
+  background-color: #f9f9f9; /* Light background color */
+  color: #333; /* Dark text color */
+  transition: all 0.3s ease; /* Smooth transitions for hover and focus */
+
+  /* Apply the global font */
+  font-family: "Darker Grotesque";
+}
+
+/* Placeholder Styling */
+.search-bar::placeholder {
+  font-family: "Darker Grotesque";
+    color: #aaa; /* Light gray placeholder text */
+  font-style: italic; /* Italicized placeholder */
+}
+
+/* Hover Effect */
+.search-bar:hover {
+  border-color: #ccc; /* Slightly darker border on hover */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Focus Effect */
+.search-bar:focus {
+  border-color: #007bff; /* Highlight border on focus */
+  box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2); /* Glow effect */
+}
+
+.actions i {
+  font-size: 15px; /* Icon size */
+  color: #6c757d; /* Gray color */
+  cursor: pointer; /* Pointer cursor on hover */
+}
+
+.user-profile {
+  width: 40px; /* User profile image size */
+  height: 40px;
+  border-radius: 50%; /* Circular shape */
+  object-fit: cover; /* Ensure the image fits nicely */
+}
+.icon-button {
+  background: none; /* Remove default button background */
+  border: none; /* Remove default button border */
+  cursor: pointer; /* Pointer cursor on hover */
+  font-size: 20px; /* Match the size of the original icon */
+  color: #6c757d; /* Gray color, same as the original icon */
+  padding: 5px; /* Add slight padding for better click area */
+  transition: color 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+}
+
+.icon-button:hover {
+  color: #333; /* Darker color on hover */
+  transform: scale(1.1); /* Slightly enlarge the button on hover */
+}
+
+.icon-button:focus {
+  outline: none; /* Remove default focus outline */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Add a subtle glow effect on focus */
+}
+/* Dropdown Menu */
+/* Dropdown Menu */
+.notifications-dropdown {
+  position: absolute;
+  top: 45px;
+  right: 10px;
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  max-height: 300px;
+  overflow-y: auto;
+  z-index: 1000;
+}
+
+.notification-item {
+  display: flex;
+  flex-direction: column;
+  padding: 15px; /* Slightly more padding for better spacing */
+  border-bottom: 1px solid #f0f0f0;
+  cursor: pointer; /* Indicate clickable */
+  transition: all 0.3s ease; /* Smooth transitions for hover effects */
+}
+
+.notification-item:hover {
+  background-color: #c8eee8; /* Light blue background on hover */
+  transform: scale(1.02); /* Slightly enlarge the item */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); /* Subtle shadow for depth */
+}
+
+.notification-item span {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333; /* Dark text color */
+  transition: color 0.3s ease; /* Smooth color transition */
+}
+
+.notification-item:hover span {
+  color: #0f5247; /* Blue color on hover */
+}
+
+.notification-item small {
+  font-size: 12px;
+  color: #6c757d; /* Gray color */
+  margin-top: 5px; /* Add spacing between title and timestamp */
+  transition: color 0.3s ease; /* Smooth color transition */
+}
+
+.notification-item:hover small {
+  color: #495057; /* Darker gray color on hover */
+}
+
+.view-all {
+  text-align: center;
+  padding: 15px; /* Increased padding */
+  border-top: 1px solid #f0f0f0;
+  font-weight: 700;
+  transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+.view-all:hover {
+  background-color: #f9f9f9; /* Light background on hover */
+}
+
+.view-all a {
+  text-decoration: none;
+  color: #436d66; /* Original color */
+  font-size: 14px;
+  transition: color 0.3s ease; /* Smooth color transition */
+}
+
+.view-all a:hover {
+  text-decoration: underline;
+  color: #0f5247; /* Darker green on hover */
+}

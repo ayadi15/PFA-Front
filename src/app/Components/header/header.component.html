@@ -1,0 +1,45 @@
+<div class="header">
+  <!-- Logo Section -->
+  <div class="logo-section">
+    <img src="/assets/images/Logo_MediN.webp" alt="MEDI Logo" class="logo">
+    <div class="text-container">
+      <p class="pages">Page / {{ currentPage }}</p>
+      <span class="main-dashboard">{{ currentPage }}</span>
+    </div>
+  </div>
+
+  <!-- Notify Staff Button -->
+  <button class="notify-btn">Notify Staff</button>
+
+  <!-- Actions Section -->
+  <div class="actions">
+    <div class="search-container">
+      <i class="fas fa-search search-icon"></i>
+      <input type="text" placeholder="Search" class="search-bar">
+    </div>
+
+    <button class="icon-button" (click)="toggleNotifications()">
+      <i class="fas fa-bell"></i>
+    </button>
+    <div class="notifications-dropdown" *ngIf="showNotifications" [@dropdownAnimation]="showNotifications ? 'open' : 'closed'">
+      <div class="notification-item" (click)="handleNotificationClick('new-patient')">
+        <span>New patient registered</span>
+        <small>5 minutes ago</small>
+      </div>
+      <div class="notification-item" (click)="handleNotificationClick('urgent-case')">
+        <span>Urgent case in Room 3</span>
+        <small>10 minutes ago</small>
+      </div>
+      <div class="notification-item" (click)="handleNotificationClick('appointment-reminder')">
+        <span>Appointment reminder for Dr. Smith</span>
+        <small>30 minutes ago</small>
+      </div>
+      <div class="view-all">
+        <a href="#">View All Notifications</a>
+      </div>
+    </div>
+
+    <button class="icon-button"><i class="fas fa-moon"></i></button>
+    <img src="/assets/images/user.webp" alt="User Profile" class="user-profile">
+  </div>
+</div>

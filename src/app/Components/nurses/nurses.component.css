@@ -1,0 +1,36 @@
+.nurse-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.add-nurse-btn {
+  background-color: #0f5247;
+  color: white;
+}
+
+.add-nurse-btn:hover {
+  background-color: #0d443b;
+}
+
+.status-active {
+  color: green;
+  font-weight: bold;
+}
+
+.status-retired {
+  color: gray;
+  font-weight: bold;
+}
+
+.status-on-leave {
+  color: orange;
+  font-weight: bold;
+}
+
+.action-icon {
+  width: 20px;
+  margin-right: 10px;
+  cursor: pointer;
+}

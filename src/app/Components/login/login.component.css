@@ -1,0 +1,109 @@
+/* src/app/login/login.component.css */
+@import url('https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300..900&family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden; /* ✅ Prevent all scrollbars */
+}
+
+body {
+   font-family: "Darker Grotesque";
+   font-size: 17px;
+  font-weight: 300;
+  font-style:normal;
+}
+
+.login-container {
+  position: fixed; /* replaces relative */
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.login-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-image: url('/assets/images/tbib.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: blur(5px) brightness(0.6); /* Blur + darken */
+  z-index: -1;
+  
+}
+.login-form {
+  position: relative;
+  z-index: 1;
+  background-color: rgba(255, 255, 255, 0.85); /* Optional: slight white background */
+  padding: 2rem;
+  border-radius: 30px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  width: 35%;
+  height:50% ;
+}
+
+.login-form h2 {
+  color: #333;
+  font-weight: bold;
+}
+
+.login-form label {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.login-form input {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.login-btn {
+  width: 100%;
+  padding: 10px;
+  margin-top: 20px;
+  background-color: #436d66; /* Purple color */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.login-btn:hover {
+  background-color: #0f5247; /* Darker purple on hover */
+}
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center; /* optional for vertical centering */
+  width: 100%;
+}
+.logo {
+  position: absolute;
+  top: -5px;
+  left: 0px;
+  z-index: 2;
+}
+
+.logo img {
+  height: 120px;
+  width: auto;
+}
