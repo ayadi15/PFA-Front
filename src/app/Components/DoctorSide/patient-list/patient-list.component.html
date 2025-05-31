@@ -1,0 +1,161 @@
+<div class="container">
+  <h2>Patient Management System</h2>
+
+  <!-- All Patients Table -->
+  <div class="table-section">
+    <h3>All Patients</h3>
+
+    <table *ngIf="patients && patients.length > 0">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Gender</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let patient of patients">
+          <td>{{ patient.patientID }}</td>
+          <td>{{ patient.firstname }} {{ patient.lastname }}</td>
+          <td>{{ patient.gender || "N/A" }}</td>
+          <td>
+            <span [class]="patient.currentStatus || ''">
+              {{ patient.currentStatus || "N/A" }}
+            </span>
+          </td>
+          <td>
+            <button (click)="onPatientSelect(patient.patientID)">
+              View Details
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div *ngIf="patients?.length === 0 && !selectedPatient">
+      No patients found.
+    </div>
+  </div>
+
+  <!-- Selected Patient Details -->
+  <div class="table-section" *ngIf="selectedPatient">
+    <h3>
+      Patient Details: {{ selectedPatient.firstname }}
+      {{ selectedPatient.lastname }}
+    </h3>
+
+    <div class="patient-details-grid">
+      <div class="detail-item">
+        <span class="detail-label">Patient ID:</span>
+        <span class="detail-value">{{ selectedPatient.patientID }}</span>
+      </div>
+      <div class="detail-item">
+        <span class="detail-label">Date of Birth:</span>
+        <span class="detail-value">{{
+          selectedPatient.date_of_birth || "N/A"
+        }}</span>
+      </div>
+      <div class="detail-item">
+        <span class="detail-label">Status:</span>
+        <span
+          class="detail-value"
+          [class]="selectedPatient.currentStatus || ''"
+        >
+          {{ selectedPatient.currentStatus || "N/A" }}
+        </span>
+      </div>
+      <div class="detail-item">
+        <span class="detail-label">Admission Date:</span>
+        <span class="detail-value">
+          <ng-container
+            *ngIf="selectedPatient.admission_date; else naAdmission"
+          >
+            {{ selectedPatient.admission_date | date : "mediumDate" }}
+          </ng-container>
+          <ng-template #naAdmission>N/A</ng-template>
+        </span>
+      </div>
+      <div class="detail-item">
+        <span class="detail-label">Room:</span>
+        <span class="detail-value">{{ selectedPatient.room_id || "N/A" }}</span>
+      </div>
+      <div class="detail-item">
+        <span class="detail-label">Emergency Contact:</span>
+        <span class="detail-value">{{
+          selectedPatient.emergency_contact || "N/A"
+        }}</span>
+      </div>
+      <div class="detail-item">
+        <span class="detail-label">Insurance Provider:</span>
+        <span class="detail-value">{{
+          selectedPatient.insurance_provider || "N/A"
+        }}</span>
+      </div>
+      <div class="detail-item">
+        <span class="detail-label">Waiting Time:</span>
+        <span class="detail-value">{{
+          selectedPatient.waitingTime
+            ? selectedPatient.waitingTime + " mins"
+            : "N/A"
+        }}</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Admission History Table -->
+  <div
+    class="table-section"
+    *ngIf="selectedPatient && patientAdmissionHistory.length > 0"
+  >
+    <h3>Admission History</h3>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Admission ID</th>
+          <th>Reason</th>
+          <th>Admission Date</th>
+          <th>Discharge Date</th>
+          <th>Diagnosis</th>
+          <th>Days</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let history of patientAdmissionHistory">
+          <td>{{ history.admission_id }}</td>
+          <td>{{ history.reason }}</td>
+          <td>{{ history.admission_date | date : "mediumDate" }}</td>
+          <td>{{ history.discharge_date | date : "mediumDate" }}</td>
+          <td>{{ history.diagnosis }}</td>
+          <td>
+            {{ calculateDays(history.admission_date, history.discharge_date) }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="selectedPatient && patientAdmissionHistory.length === 0">
+    No admission history found for this patient.
+  </div>
+ <!-- <button (click)="onFilterERPatients()">Show Patients Still in ER</button> -->
+
+<div *ngIf="erPatients.length > 0">
+  <h3>Patients Still in ER:</h3>
+  <ul>
+    <li *ngFor="let p of erPatients">
+      {{ p.firstname }} {{ p.lastname }} - Room: {{ p.room_id }} - Waiting Time:
+      {{ p.waitingTime }} mins  | Admission Date: {{ p.admission_date }}
+
+      <button (click)="sendselectedtodetails(p.patientID)">View Details</button>
+      <!-- <button (click)="onDischargePatient(p.patientID)">Discharge</button> -->
+    </li>
+  </ul>
+</div>
+
+<div *ngIf="erPatients.length === 0 && erPatients !== undefined">
+  <p>No patients currently in ER without a discharge date.</p>
+</div>
+</div>

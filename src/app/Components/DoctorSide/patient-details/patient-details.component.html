@@ -1,0 +1,50 @@
+<h2 mat-dialog-title> Patient Details </h2>
+
+<mat-dialog-content>
+  <p><strong>Patient ID:</strong> {{ data.patientID }}</p>
+  <p><strong>Name:</strong> {{ data.firstname }} {{ data.lastname }}</p>
+  <p><strong>Gender:</strong> {{ data.gender }}</p>
+  <p><strong>Date of Birth:</strong> {{ data.date_of_birth }}</p>
+  <p><strong>Status:</strong> {{ data.currentStatus }}</p>
+  <p><strong>Admission Date:</strong> {{ data.admission_date }}</p>
+  <p><strong>Discharge Date:</strong> {{ data.discharge_date || 'Not discharged' }}</p>
+  <p><strong>Room ID:</strong> {{ data.room_id }}</p>
+  <p><strong>Waiting Time:</strong> {{ data.waitingTime }} mins</p>
+  <p><strong>Emergency Contact:</strong> {{ data.emergency_contact }}</p>
+  <p><strong>Insurance:</strong> {{ data.insurance_provider }}</p>
+
+ 
+    <h3>Admission History</h3>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Admission ID</th>
+          <th>Reason</th>
+          <th>Admission Date</th>
+          <th>Discharge Date</th>
+          <th>Diagnosis</th>
+          <th>Days</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let history of admissions">
+          <td>{{ history.admission_id }}</td>
+          <td>{{ history.reason }}</td>
+          <td>{{ history.admission_date | date : "mediumDate" }}</td>
+          <td>{{ history.discharge_date | date : "mediumDate" }}</td>
+          <td>{{ history.diagnosis }}</td>
+          <!-- <td>
+            {{ calculateDays(history.admission_date, history.discharge_date) }}
+          </td> -->
+        </tr>
+      </tbody>
+    </table>
+  
+
+ 
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="dialogref.close()">Close</button>
+</mat-dialog-actions>

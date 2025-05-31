@@ -15,7 +15,7 @@ import { HeaderComponent } from './Components/header/header.component';
 import { LoginComponent } from './Components/login/login.component';
 import { DashboardComponent } from './Components/dashboard/dashboard.component';
 
-// Dashboard Sections
+// Dashboard Components
 import { StatisticsComponent } from './Components/dashboard/statistics/statistics.component';
 import { ChartComponent } from './Components/dashboard/chart/chart.component';
 import { TableComponent } from './Components/dashboard/table/table.component';
@@ -43,7 +43,16 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
+import { PatientDetailsComponent } from './Components/DoctorSide/patient-details/patient-details.component';
+import { SendReportToAdminModalComponent } from './Components/DoctorSide/send-report-to-admin-modal/send-report-to-admin-modal.component';
+import { SeePatientAdmissionHistoryComponent } from './Components/DoctorSide/see-patient-admission-history/see-patient-admission-history.component';
+import { DashboardDoctorComponent } from './Components/DoctorSide/dashboard-doctor/dashboard-doctor.component';
+import { PatientListComponent } from './Components/DoctorSide/patient-list/patient-list.component';
 import { NurseDialogComponent } from './Components/nurse-dialog/nurse-dialog.component';
+import { HttpClientModule } from '@angular/common/http';
+import { SchedulesBigComponent } from './Components/schedules-big/schedules-big.component';
+import { DoctorScheduleComponent } from './Components/DoctorSide/doctor-schedule/doctor-schedule.component';
+
 
 
 @NgModule({
@@ -64,10 +73,19 @@ import { NurseDialogComponent } from './Components/nurse-dialog/nurse-dialog.com
     ConsultationsComponent,
     RoomsComponent,
     ReceptionistsComponent,
-    NurseDialogComponent
+    NurseDialogComponent,
+    PatientListComponent,
+    DashboardDoctorComponent,
+    SeePatientAdmissionHistoryComponent,
+    SendReportToAdminModalComponent,
+    PatientDetailsComponent,
+    DashboardDoctorComponent,
+    SchedulesBigComponent,
+    DoctorScheduleComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
