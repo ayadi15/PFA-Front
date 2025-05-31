@@ -1,0 +1,32 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.add-button {
+    margin-right: 40px !important;
+  margin-top: 40px !important;
+  background-color: #0d443b !important;
+  color: white !important;
+  font-weight: 500 !important;
+}
+
+.add-button:hover {
+  background-color: #0f5247 !important;
+}
+
+mat-table {
+  width: 100%;
+  margin-top: 10px;
+}
+
+mat-header-cell,
+mat-cell {
+  padding: 8px 12px;
+}
+
+mat-paginator {
+  margin-top: 15px;
+}

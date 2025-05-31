@@ -1,1 +1,57 @@
-<p>rooms works!</p>
+<div class="header">
+  <h2>rooms</h2>
+  <button mat-raised-button class="add-button" (click)="openAddroomDialog()">Add room</button>
+</div>
+
+<mat-table [dataSource]="dataSource" matSort>
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Name</mat-header-cell>
+    <mat-cell *matCellDef="let room">{{ room.name }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="type">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Type</mat-header-cell>
+    <mat-cell *matCellDef="let room">{{ room.type }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="status">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Status</mat-header-cell>
+    <mat-cell *matCellDef="let room">{{ room.status }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="capacity">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Capacity</mat-header-cell>
+    <mat-cell *matCellDef="let room">{{ room.capacity }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="floor">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Floor</mat-header-cell>
+    <mat-cell *matCellDef="let room">{{ room.floor }}</mat-cell>
+  </ng-container>
+
+ 
+
+  <ng-container matColumnDef="wing">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Wing</mat-header-cell>
+    <mat-cell *matCellDef="let room">{{ room.wing }}</mat-cell>
+  </ng-container>
+
+
+
+  <ng-container matColumnDef="actions">
+    <mat-header-cell *matHeaderCellDef>Actions</mat-header-cell>
+    <mat-cell *matCellDef="let room; let i = index">
+      <button mat-icon-button color="primary" (click)="openEditroomDialog(room, i)">
+        <img src="assets/images/pen.png" alt="Edit" style="width:24px; height:24px;" />
+      </button>
+      <button mat-icon-button color="warn" (click)="deleteroom(i)">
+        <img src="assets/images/delete.png" alt="Delete" style="width:24px; height:24px;" />
+      </button>
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
+
+<mat-paginator [pageSizeOptions]="[5, 10, 20]"></mat-paginator>

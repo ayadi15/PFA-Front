@@ -42,9 +42,12 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import {MatSelectModule} from '@angular/material/select';
-import { NurseDialogComponent } from './Components/nurse-dialog/nurse-dialog.component';
+import { MatSelectModule } from '@angular/material/select';
 
+import { NurseDialogComponent } from './Components/nurse-dialog/nurse-dialog.component';
+import { ReceptionistDialogComponent } from './Components/receptionist-dialog/receptionist-dialog.component';
+import { PatientDialogComponent } from './Components/patient-dialog/patient-dialog.component';
+import { RoomDialogComponent } from './room-dialog/room-dialog.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +67,10 @@ import { NurseDialogComponent } from './Components/nurse-dialog/nurse-dialog.com
     ConsultationsComponent,
     RoomsComponent,
     ReceptionistsComponent,
-    NurseDialogComponent
+    NurseDialogComponent,
+    ReceptionistDialogComponent,
+    PatientDialogComponent,
+    RoomDialogComponent
   ],
   imports: [
     BrowserModule,

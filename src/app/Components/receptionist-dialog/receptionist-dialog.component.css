@@ -1,0 +1,24 @@
+.form-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  padding: 10px 0;
+}
+
+.form-field {
+  flex: 1 1 45%;
+  min-width: 200px;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+.add-button {
+  background-color: #0f5247;
+  color: white;
+}
+
+.add-button:hover {
+  background-color: #0d443b;
+}

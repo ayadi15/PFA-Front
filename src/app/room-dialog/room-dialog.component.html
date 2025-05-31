@@ -1,0 +1,44 @@
+<h2 mat-dialog-title>{{ isEditMode ? 'Edit room' : 'Add New room' }}</h2>
+
+<mat-dialog-content>
+  <form [formGroup]="roomForm" class="form-container">
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="name" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Type</mat-label>
+      <input matInput formControlName="type" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Status</mat-label>
+      <input matInput formControlName="status" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Capacity</mat-label>
+      <input matInput formControlName="capacity" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Floor</mat-label>
+      <input matInput formControlName="floor" />
+    </mat-form-field>
+
+    
+
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Wing</mat-label>
+      <input matInput formControlName="wing" />
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-raised-button class="add-button" (click)="onSave()">
+    {{ isEditMode ? 'Update' : 'Add' }}
+  </button>
+</mat-dialog-actions>

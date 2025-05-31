@@ -1,0 +1,52 @@
+<h2 mat-dialog-title>{{ isEditMode ? 'Edit receptionist' : 'Add New receptionist' }}</h2>
+
+<mat-dialog-content>
+  <form [formGroup]="receptionistForm" class="form-container">
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>First Name</mat-label>
+      <input matInput formControlName="firstName" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Last Name</mat-label>
+      <input matInput formControlName="lastName" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>languages spoken</mat-label>
+      <input matInput formControlName="languages_spoken" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Number</mat-label>
+      <input matInput formControlName="number" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Address</mat-label>
+      <input matInput formControlName="adress" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>desk location</mat-label>
+      <input matInput formControlName="desk_location" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>License Number</mat-label>
+      <input matInput formControlName="license_number" />
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-raised-button class="add-button" (click)="onSave()">
+    {{ isEditMode ? 'Update' : 'Add' }}
+  </button>
+</mat-dialog-actions>

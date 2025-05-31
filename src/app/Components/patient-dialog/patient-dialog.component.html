@@ -1,0 +1,52 @@
+<h2 mat-dialog-title>{{ isEditMode ? 'Edit patient' : 'Add New patient' }}</h2>
+
+<mat-dialog-content>
+  <form [formGroup]="patientForm" class="form-container">
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>First Name</mat-label>
+      <input matInput formControlName="firstName" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Last Name</mat-label>
+      <input matInput formControlName="lastName" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>gender</mat-label>
+      <input matInput formControlName="gender" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>currentStatus</mat-label>
+      <input matInput formControlName="currentStatus" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>admission date</mat-label>
+      <input matInput formControlName="admission_date" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>emergency contact</mat-label>
+      <input matInput formControlName="emergency_contact" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>discharge date</mat-label>
+      <input matInput formControlName="discharge_date" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>insurance provider</mat-label>
+      <input matInput formControlName="insurance_provider" />
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-raised-button class="add-button" (click)="onSave()">
+    {{ isEditMode ? 'Update' : 'Add' }}
+  </button>
+</mat-dialog-actions>
